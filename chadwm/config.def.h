@@ -93,7 +93,7 @@ static const char *eww[] = {"eww", "open", "eww", NULL};
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    {eww, ""},
+    {eww, ""},
 };
 
 static const int tagschemes[] = {SchemeTag3, SchemeTag2, SchemeTag1,
@@ -190,7 +190,7 @@ static const Key keys[] = {
 
     {MODKEY, XK_space, spawn, SHCMD("rofi -show drun")},
     {MODKEY, XK_b, spawn, SHCMD("firefox")},
-    {MODKEY, XK_Return, spawn, SHCMD("alacritty")},
+    {MODKEY, XK_Return, spawn, SHCMD("kitty")},
 
     // toggle stuff
     // {MODKEY, XK_b, togglebar, {0}},
