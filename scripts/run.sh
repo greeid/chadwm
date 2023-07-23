@@ -6,6 +6,7 @@ xbacklight -set 10 &
 nitrogen --restore &
 xset r rate 200 50 &
 spotify-launcher &
+volctl &
 picom --config ~/.config/picom/picom.conf &
 
 ~/.config/chadwm/scripts/bar.sh &
