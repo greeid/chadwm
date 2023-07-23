@@ -90,10 +90,10 @@ static char *tags[] = {"", "", "", "", "",
                        "", "", "阮",  "ﭮ"};
 
 static const char *eww[] = {"eww", "open", "eww", NULL};
-
+//
 static const Launcher launchers[] = {
     /* command     name to display */
-    {eww, ""},
+    // {eww, ""},
 };
 
 static const int tagschemes[] = {SchemeTag3, SchemeTag2, SchemeTag1,
@@ -118,6 +118,7 @@ static const Rule rules[] = {
        monitor */
     {"firefox", NULL, NULL, 1 << 0, 0, 0, -1},
     {"thunar", NULL, NULL, 1 << 5, 0, 0, -1},
+    {"Pcmanfm", NULL, NULL, 1 << 5, 0, 0, -1},
     {"pcmanfm", NULL, NULL, 1 << 5, 0, 0, -1},
     {"zathura", NULL, NULL, 1 << 6, 0, 0, -1},
     {"Spotify", NULL, NULL, 1 << 7, 0, 0, -1},
@@ -184,13 +185,20 @@ static const Key keys[] = {
 
     // screenshot fullscreen and cropped
     {MODKEY | ControlMask, XK_u, spawn,
-     SHCMD("maim | xclip -selection clipboard -t image/png")},
+     SHCMD("maim -o --select | xclip -selection clipboard -target image/png")},
     {MODKEY, XK_u, spawn,
-     SHCMD("maim --select | xclip -selection clipboard -t image/png")},
+     SHCMD("scrot -e 'xclip -selection clipboard -t image/png -i $f'")},
+
+    {0, XK_Print, spawn,
+     SHCMD("scrot ~/Pictures/Screenshots/%b-%d_%H:%M:%S.png ")},
 
     {MODKEY, XK_space, spawn, SHCMD("rofi -show drun")},
     {MODKEY, XK_b, spawn, SHCMD("firefox")},
+    {MODKEY | ShiftMask, XK_q, spawn, SHCMD("shutdown now")},
+    {MODKEY, XK_d, spawn, SHCMD("discord")},
     {MODKEY, XK_Return, spawn, SHCMD("kitty")},
+    {MODKEY, XK_e, spawn, SHCMD("pcmanfm")},
+    {ControlMask | ShiftMask, XK_t, spawn, SHCMD("kdocker")},
 
     // toggle stuff
     // {MODKEY, XK_b, togglebar, {0}},
@@ -202,7 +210,7 @@ static const Key keys[] = {
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},
-    {MODKEY, XK_d, incnmaster, {.i = -1}},
+    {MODKEY, XK_a, incnmaster, {.i = -1}},
 
     // shift view
     {MODKEY, XK_Left, shiftview, {.i = -1}},
@@ -275,8 +283,8 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_r, restart, {0}},
 
     // hide & restore windows
-    {MODKEY, XK_e, hidewin, {0}},
-    {MODKEY | ShiftMask, XK_e, restorewin, {0}},
+    // {MODKEY, XK_e, hidewin, {0}},
+    // {MODKEY | ShiftMask, XK_e, restorewin, {0}},
 
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
