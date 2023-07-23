@@ -93,9 +93,8 @@ static const char *eww[] = {"eww", "open", "eww", NULL};
 //
 static const Launcher launchers[] = {
     /* command     name to display */
-    // {eww, ""},
+    {eww, ""},
 };
-
 static const int tagschemes[] = {SchemeTag3, SchemeTag2, SchemeTag1,
                                  SchemeTag2, SchemeTag5, SchemeTag1,
                                  SchemeTag5, SchemeTag4, SchemeTag1};
@@ -103,7 +102,7 @@ static const int tagschemes[] = {SchemeTag3, SchemeTag2, SchemeTag1,
 static const unsigned int ulinepad =
     5; /* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke =
-    2; /* thickness / height of the underline */
+    3; /* thickness / height of the underline */
 static const unsigned int ulinevoffset =
     0; /* how far above the bottom of the bar the line should appear */
 static const int ulineall =
@@ -198,7 +197,7 @@ static const Key keys[] = {
     {MODKEY, XK_d, spawn, SHCMD("discord")},
     {MODKEY, XK_Return, spawn, SHCMD("kitty")},
     {MODKEY, XK_e, spawn, SHCMD("pcmanfm")},
-    {ControlMask | ShiftMask, XK_t, spawn, SHCMD("kdocker")},
+    {ControlMask | ShiftMask, XK_k, spawn, SHCMD("kdocker")},
 
     // toggle stuff
     // {MODKEY, XK_b, togglebar, {0}},
