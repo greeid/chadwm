@@ -49,6 +49,13 @@ wlan() {
 	esac
 }
 
+spotify(){
+  title=$(spotifyctl status --format '%title% : %artist%' --max-length 50 --max-artist-length 15 --max-title-length 35 --trunc '..')
+  printf "^c$white^ ^b$black^ 󰓇 $title" 
+  
+
+}
+
 clock() {
 	printf "^c$black^ ^b$darkblue^ 󱑆 "
 	printf "^c$black^^b$blue^ $(date '+%H:%M')  "
@@ -58,6 +65,10 @@ while true; do
 
   [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$(pkg_updates)
   interval=$((interval + 1))
+  
+  #  title=$(playerctl metadata xesam:title && printf "^c$white^ ^b$grey^ $cpu_val") 
+  # 
+  #  artist=$(playerctl metadata xesam:artist && printf "^c$white^ ^b$grey^ $cpu_val") 
 
-  sleep 1 && xsetroot -name "$updates $(battery) $(brightness) $(cpu) $(mem) $(clock)"
+  sleep 1 && xsetroot -name "$(spotify)            $updates $(battery) $(brightness) $(cpu) $(mem) $(clock)"
 done
